@@ -1,0 +1,101 @@
+---
+
+---
+
+<section class="reading-journey-section">
+   <h2>Your tech reading journey</h2>
+   <div>
+      <ol class="step-container">
+         <li class="arrow">Choose your membership tier</li>
+         <li class="arrow">Get your monthly book selection</li>
+         <li class="arrow">Join our discussions forums</li>
+         <li>Attend exclusive meetups</li>
+      </ol>
+   </div>
+</section>
+
+<style>
+   .reading-journey-section {
+      background-color: var(--neutral-100);
+      background-origin: border-box;
+      background-image:
+         url("/images/pattern-light-bg.svg"), url("/images/pattern-glow.svg");
+      background-repeat: no-repeat;
+      background-position:
+         center,
+         8% -40%;
+      border-radius: 12px;
+      padding: 64px 16px;
+      margin-block: 64px;
+   }
+
+   h2 {
+      font: var(--text-2-fluid);
+      color: var(--neutral-900);
+      margin-bottom: 32px;
+   }
+
+   .step-container {
+      list-style: none;
+      counter-reset: my-counter;
+
+      & li {
+         margin-bottom: 32px;
+         position: relative;
+         counter-increment: my-counter;
+         font: var(--text-6-fluid);
+      }
+   }
+
+   .step-container li::before {
+      content: counter(my-counter);
+      display: block;
+      position: relative;
+      line-height: 1.6;
+      color: var(--neutral-900);
+      text-align: center;
+      background: transparent;
+      width: 32px;
+      height: 30px;
+      border: 2px solid var(--neutral-900);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+   }
+   @media (width>=1024px) {
+      .reading-journey-section {
+         background-position:
+            center,
+            400% 0%;
+         margin-block: 120px;
+         li {
+            width: 200px;
+         }
+      }
+
+      .reading-journey-section h2 {
+         text-align: center;
+         width: 550px;
+         margin-inline: auto;
+         margin-bottom: 64px;
+      }
+
+      .step-container {
+         display: flex;
+         justify-content: space-around;
+      }
+
+      .step-container li::before {
+         margin-bottom: 2rem;
+      }
+
+      .step-container .arrow::after {
+         content: url("images/pattern-arrow.svg");
+         position: absolute;
+         top: 0;
+         right: 0;
+         display: inline-block;
+         width: 90%;
+         max-width: 100px;
+      }
+   }
+</style>

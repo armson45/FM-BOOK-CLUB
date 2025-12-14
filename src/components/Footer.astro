@@ -1,0 +1,136 @@
+---
+import Button from "./Button.astro";
+import TestimonialSection from "./TestimonialSection.astro";
+import LinkedinIcon from "../assets/images/logo-linkedin.svg";
+import BlueskyIcon from "../assets/images/logo-bluesky.svg";
+---
+
+<footer class="footer">
+   <div class="footer-wrapper">
+      <section>
+         <h4>Ready to debug your reading list?</h4>
+         <div class="cta-container">
+            <Button
+               text="Review membership options"
+               icon={true}
+               footer={true}
+            />
+            <TestimonialSection />
+         </div>
+      </section>
+   </div>
+   <div class="footer-content">
+      <p class="copyright">&COPY; 2024 - Tech Book Club</p>
+      <img
+         src={BlueskyIcon.src}
+         width={BlueskyIcon.width}
+         height={BlueskyIcon.height}
+         class="icon-bluesky"
+         alt=""
+      />
+      <img
+         src={LinkedinIcon.src}
+         width={LinkedinIcon.width}
+         height={LinkedinIcon.height}
+         class="icon-linkedin"
+         alt=""
+      />
+   </div>
+</footer>
+
+<style>
+   .footer-wrapper {
+      max-width: 760px;
+      width: 100%;
+      margin-inline: auto;
+   }
+
+   section {
+      max-width: 1175px;
+      width: 95%;
+      margin-inline: auto;
+      color: var(--neutral-0);
+
+      & h4 {
+         font: var(--text-2-fluid);
+         text-align: center;
+         letter-spacing: var(--ls-xx-tight);
+      }
+   }
+
+   .cta-container {
+      max-width: 390px;
+      margin-inline: auto;
+   }
+
+   .footer {
+      background-image: url("/images/pattern-dark-bg.svg");
+      background-position: top;
+      padding-top: 48px;
+      background-color: var(--neutral-900);
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      color: var(--neutral-0);
+   }
+
+   .footer-content {
+      padding: 24px 32px;
+      display: grid;
+      grid-template-areas:
+         "copyright copyright"
+         "icon-bluesky icon-linkedin";
+      gap: 24px 16px;
+      justify-content: center;
+      border-top: 1px solid var(--neutral-700);
+      margin-top: 64px;
+   }
+   .copyright {
+      grid-area: copyright;
+      font: var(--text-7-static);
+      letter-spacing: var(--ls-x-tight);
+   }
+   .icon-bluesky {
+      grid-area: icon-bluesky;
+      width: 22px;
+      justify-self: end;
+   }
+   .icon-linkedin {
+      width: 22px;
+      grid-area: icon-linkedin;
+   }
+
+   .footer-content *:hover {
+      cursor: pointer;
+      opacity: .8;
+   }
+
+   @media (width>=768px) {
+
+      .footer {
+      padding-top: 80px;
+      }
+
+      .footer-content {
+         justify-content: start;
+         align-items: center;
+         grid-template-columns: repeat(12, 1fr);
+         grid-template-rows: 1fr;
+         gap: 0 24px;
+      }
+
+      .copyright {
+         grid-column: span 6;
+      }
+
+      .icon-linkedin {
+         justify-self: center;
+         grid-row: 1;
+         grid-column: 12;
+      }
+
+      .icon-bluesky {
+         grid-row: 1;
+         grid-column: 11;
+      }
+   }
+</style>

@@ -1,0 +1,61 @@
+---
+import StartsContainer from "../assets/images/stars-container.svg";
+---
+
+<section class="testimonial-section">
+   <img
+      src={StartsContainer.src}
+      width={StartsContainer.width}
+      height={StartsContainer.height}
+      class="rating__stars"
+      alt=""
+   />
+   <div class="testimony">
+      <blockquote>
+         <p>
+            "This book club transformed my technical reading from a solitary
+            activity into an enriching community experience. The discussions are
+            gold!"
+         </p>
+         <cite> Sarah Chen, Software Architect </cite>
+      </blockquote>
+   </div>
+</section>
+
+<style>
+   .testimonial-section {
+      margin-block: 64px;
+      max-width: 970px;
+      margin-inline: auto;
+   }
+
+   .rating__stars {
+      width: 120px;
+   }
+
+   .testimony {
+      margin-top: 32px;
+   }
+
+   .testimony p {
+      font: var(--text-3-fluid);
+      color: var(--neutral-900);
+      margin-bottom: 32px;
+   }
+
+   .testimony cite {
+      font: var(--text-5-static);
+      color: var(--neutral-700);
+   }
+
+   @media (width>=1024px) {
+      .testimonial-section{
+         text-align: center;
+         margin-block: 120px;
+      }
+
+      .rating__stars {
+         margin-inline: auto;
+      }
+   }
+</style>

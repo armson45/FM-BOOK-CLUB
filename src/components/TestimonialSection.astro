@@ -1,0 +1,52 @@
+---
+import ImageAvatars from "../assets/images/image-avatars.webp";
+import StartsContainer from "../assets/images/stars-container.svg";
+---
+
+<div class="total-testimonial">
+   <img
+      src={ImageAvatars.src}
+      width={ImageAvatars.width}
+      height={ImageAvatars.height}
+      class="testimonial-images"
+      alt="Profile picture of three users"
+   />
+   <img
+      src={StartsContainer.src}
+      width={StartsContainer.width}
+      height={StartsContainer.height}
+      class="rating__stars"
+      alt=""
+   />
+   <p class="rating__text-info">200+ developers joined already</p>
+</div>
+
+<style>
+   .total-testimonial {
+      margin-top: 16px;
+      display: grid;
+      grid-template-areas:
+         "testimonial-images rating__stars"
+         "testimonial-images rating__text-info";
+      gap: 4px 12px;
+      align-items: center;
+      justify-items: start;
+   }
+
+   .testimonial-images {
+      grid-area: testimonial-images;
+      max-height: 40px;
+   }
+
+   .rating__stars {
+      grid-area: rating__stars;
+      width: 120px;
+   }
+
+   .rating__text-info {
+      grid-area: rating__text-info;
+      font: var(--text-7-static);
+      color: inherit;
+      letter-spacing: var(--ls-x-tight);
+   }
+</style>

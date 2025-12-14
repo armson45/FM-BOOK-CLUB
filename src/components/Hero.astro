@@ -1,0 +1,77 @@
+---
+import HeroImageDesktop from "../assets/images/image-hero-desktop.webp";
+import HeroImageTablet from "../assets/images/image-hero-tablet.webp";
+import HeroImageMobile from "../assets/images/image-hero-mobile.webp";
+import Button from "./Button.astro";
+import TestimonialSection from "./TestimonialSection.astro";
+---
+
+<section class="hero-section">
+    <div>
+        <h1>Join the ultimate tech book club</h1>
+        <p class="hero-text">
+            Turn your reading time into learning time with fellow tech
+            enthusiasts. Get curated recommendations, join vibrant discussions,
+            and level up your skills one chapter at a time.
+        </p>
+        <div class="call-to-action">
+            <Button text="Review membership options" />
+            <TestimonialSection />
+        </div>
+    </div>
+
+    <picture class="hero-image">
+        <source media="(width >= 1024px)" srcset={HeroImageDesktop.src} />
+        <source media="(width >= 768px)" srcset={HeroImageTablet.src} />
+        <img src={HeroImageMobile.src} alt="People reading" />
+    </picture>
+</section>
+
+<style>
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 64px;
+
+        h1 {
+            font: var(--text-1-fluid);
+            letter-spacing: var(--ls-xx-tight);
+            text-wrap: stable;
+            background-image: var(--text-gradient);
+            background-clip: text;
+            color: transparent;
+        }
+    }
+
+    .hero-image {
+        overflow: clip;
+        & img {
+            border-radius: 8px;
+        }
+    }
+
+    .hero-text {
+        font: var(--text-5-static);
+        letter-spacing: var(--ls-tight);
+        margin-top: 1.5rem;
+        color: var(--neutral-700);
+    }
+
+    .call-to-action {
+        margin-top: 32px;
+        max-width: 400px;
+    }
+
+    @media (width>=1024px) {
+        .hero-section {
+            flex-direction: row;
+        }
+    }
+
+    @media (width>=1400px) {
+        .hero-section{
+            margin-top: 80px;
+        }
+    }
+</style>

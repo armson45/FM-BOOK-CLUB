@@ -1,0 +1,56 @@
+---
+import MembershipCard from "./MembershipCard.astro";
+---
+
+<section class="membership-options-section" id="membership">
+   <h2>Membership Options</h2>
+   <div class="plan-container">
+      <MembershipCard
+         type="Starter"
+         price="$19"
+         features={["1 books/month", "Online forums"]}
+      />
+      <MembershipCard
+         type="Pro"
+         price="$29"
+         features={["2 books/month", "Virtual meetups"]}
+      />
+      <MembershipCard
+         type="Enterprise"
+         price="Custom"
+         features={["Team access", "Private sessions"]}
+         textButton="Talk to us"
+      />
+   </div>
+</section>
+
+<style>
+   h2 {
+      font: var(--text-2-fluid);
+      color: var(--neutral-900);
+      margin-bottom: 24px;
+   }
+
+   .plan-container {
+      max-width: 970px;
+      margin: 0 auto;
+      display: flex;
+      flex-flow: row wrap;
+      row-gap: 16px;
+      justify-content: space-evenly;
+   }
+
+   @media (width>=768px) {
+      h2 {
+         text-align: center;
+      }
+   }
+
+   @media (width>=1024px) {
+      .plan-container{
+         margin-top: 64px;
+         justify-content: space-between;
+         align-items: center;
+      }
+   }
+</style>

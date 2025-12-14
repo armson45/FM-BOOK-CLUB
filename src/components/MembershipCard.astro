@@ -1,0 +1,117 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+   type: string;
+   price: string;
+   features: string[];
+   textButton?: string;
+}
+
+const { type, price, features, textButton = "Subscribe now" } = Astro.props;
+---
+
+<article class="type-plan-card">
+   <div>
+      <h3 class="plan-type">{type}</h3>
+      <p class="price">
+         {price}&ThickSpace;
+         {price === "Custom" ? "" : <span>/month</span>}
+      </p>
+      <hr />
+      <ol class="plan-features">
+         {features.map((feature) => <li>{feature}</li>)}
+      </ol>
+   </div>
+
+   <Button text={textButton} icon={false} />
+</article>
+
+<style>
+   hr {
+      border: 1px solid var(--neutral-200);
+      margin-block: 24px;
+   }
+
+   .type-plan-card {
+      border: 1px solid var(--neutral-200);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      & div {
+         margin-bottom: 32px;
+      }
+   }
+
+   .type-plan-card:nth-child(1) {
+      grid-area: starter-plan;
+   }
+
+   .type-plan-card:nth-child(2) {
+      grid-area: pro-plan;
+      background-color: var(--neutral-100);
+      background-image: url("/images/pattern-glow.svg");
+      background-position: 10% 20%;
+      max-width: 768px;
+      width: 95%;
+      order: 3;
+   }
+
+   .plan-type {
+      font: var(--text-4-static);
+      color: var(--neutral-900);
+      letter-spacing: var(--ls-x-tight);
+      margin-bottom: 24px;
+   }
+
+   .price {
+      font: var(--text-3-static);
+      color: var(--neutral-900);
+      display: flex;
+      align-items: center;
+      span {
+         font: var(--text-5-static);
+         color: var(--neutral-700);
+      }
+   }
+
+   .plan-features {
+      list-style: none;
+
+      & li {
+         font: var(--text-5-static);
+         color: var(--neutral-700);
+         letter-spacing: var(--ls-tight);
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         margin-bottom: 1rem;
+      }
+   }
+
+   .plan-features li::before {
+      content: url("../../public/images/icon-check.svg");
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+   }
+
+   @media (width>=768px) {
+      .type-plan-card {
+         max-width: 340px;
+      }
+   }
+
+   @media (width>=1024px) {
+
+      .type-plan-card {
+         max-width: 280px;
+      }
+
+      .type-plan-card:nth-child(2){
+         width: 350px;
+         height: 390px;
+         order: initial;
+      }
+   }
+</style>
