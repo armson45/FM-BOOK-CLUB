@@ -33,6 +33,7 @@ import TestimonialSection from "./TestimonialSection.astro";
         flex-direction: column;
         align-items: center;
         gap: 64px;
+        margin-top: 48px;
 
         h1 {
             font: var(--text-1-fluid);
@@ -46,6 +47,7 @@ import TestimonialSection from "./TestimonialSection.astro";
 
     .hero-image {
         overflow: clip;
+        max-width: 540px;
         & img {
             border-radius: 8px;
         }
@@ -66,11 +68,12 @@ import TestimonialSection from "./TestimonialSection.astro";
     @media (width>=1024px) {
         .hero-section {
             flex-direction: row;
+            margin-top: 64px;
         }
     }
 
     @media (width>=1400px) {
-        .hero-section{
+        .hero-section {
             margin-top: 80px;
         }
     }

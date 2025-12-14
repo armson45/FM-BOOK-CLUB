@@ -28,7 +28,7 @@ import AverageClubMobile from "../assets/images/image-not-average-mobile.webp";
       width: fit-content;
 
       &::after {
-         content: url("images/pattern-circle.svg");
+         content: url("/images/pattern-circle.svg");
          position: absolute;
          display: inline-block;
          width: 120%;
@@ -58,6 +58,7 @@ import AverageClubMobile from "../assets/images/image-not-average-mobile.webp";
 
    .community-image {
       overflow: clip;
+      max-width: 540px;
       & img {
          border-radius: 12px;
       }
@@ -66,6 +67,7 @@ import AverageClubMobile from "../assets/images/image-not-average-mobile.webp";
    @media (width>=1024px) {
       .community-section {
          align-items: center;
+         justify-content: center;
          flex-direction: row;
          & div {
             max-width: 500px;
